@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912130518) do
+ActiveRecord::Schema.define(version: 20160912140453) do
+
+  create_table "clientes", force: :cascade do |t|
+    t.string   "nome",       limit: 80
+    t.integer  "idade",      limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pratos", force: :cascade do |t|
+    t.string   "nome",       limit: 80
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "qualificacoes", force: :cascade do |t|
+    t.float    "nota",        limit: 24
+    t.float    "valor_gasto", limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "receitas", force: :cascade do |t|
+    t.text     "conteudo",   limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "restaurantes", force: :cascade do |t|
     t.string   "nome",          limit: 80
